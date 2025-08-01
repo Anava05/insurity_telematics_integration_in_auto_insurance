@@ -37,8 +37,8 @@ Follow these steps carefully to set up your environment and run the project.
 First, clone this repository to your local machine using Git.
 
 ```bash
-git clone https://github.com/your-username/insurity-telematics-solution.git
-cd insurity-telematics-solution
+git clone https://github.com/Anava05/insurity_telematics_integration_in_auto_insurance.git
+cd insurity_telematics_integration_in_auto_insurance
 ```
 
 ### Step 2: Create a Virtual Environment (Highly Recommended)
