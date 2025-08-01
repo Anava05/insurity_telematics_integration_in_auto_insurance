@@ -6,6 +6,14 @@ The core of the solution is a **cascading two-stage machine learning architectur
 
 ---
 
+## 🎥 Application Demo
+
+Click the thumbnail below to watch a complete video walkthrough of the project setup and the final application in action.
+
+[![Insurity Telematics Project Demo](https://img.youtube.com/vi/FjS6_3U-Q5c/maxresdefault.jpg)](https://www.youtube.com/watch?v=FjS6_3U-Q5c)
+
+---
+
 ## 🚀 Key Features
 
 *   **Sophisticated Two-Stage Model:** A cascading pipeline that decouples behavioral risk scoring from final premium calculation for improved accuracy and interpretability.
@@ -61,15 +69,7 @@ After activation, you will see `(venv)` at the beginning of your terminal prompt
 
 ### Step 3: Install Required Libraries
 
-This project comes with a `requirements.txt` file that lists all necessary libraries with versions that are known to work together.
-
-First, **create the `requirements.txt` file** by running this command in your terminal. This captures the exact versions of the libraries you used to build the project.
-```bash
-pip freeze > requirements.txt
-```
-*(You only need to do this once. Then, commit the file to your repository.)*
-
-Now, install all dependencies from this file:
+This project comes with a `requirements.txt` file that lists all necessary libraries with versions that are known to work together. Install all dependencies from this file:
 ```bash
 pip install -r requirements.txt
 ```
@@ -78,7 +78,7 @@ pip install -r requirements.txt
 
 ## ▶️ Running the Full Pipeline
 
-The scripts are designed to be run in a specific order to build the necessary data and models before launching the application.
+The scripts are designed to be run in a specific order to build the necessary data and models before launching the application. If you wish to regenerate everything from scratch, follow all steps. Otherwise, you can skip to Step 5 if the model files are already present.
 
 ### Step 1: Generate Telematics Features
 
@@ -96,7 +96,7 @@ This script trains the first model to score driver behavior and saves it.
 ```bash
 python train_risk_model.py
 ```
-*   **Output:** `risk_model.joblib`, plus SHAP plots for analysis.
+*   **Output:** `risk_model.joblib`
 
 ### Step 3: Generate the Premium Dataset
 
@@ -118,7 +118,7 @@ python train_premium_model.py
 
 ### Step 5: Launch the Interactive Dashboard
 
-After all previous steps are complete, run the main application. **Use the `python -m` flag for maximum reliability.**
+After all previous steps are complete (or if the `.joblib` files are already in the directory), run the main application. **Use the `python -m` flag for maximum reliability.**
 
 ```bash
 python -m streamlit run final_dashboard.py
@@ -148,10 +148,6 @@ If you encounter an error, check here first.
 *   **Error: `FileNotFoundError: [Errno 2] No such file or directory: 'model_ready_features.csv'`**
     *   **Cause:** You have not run the scripts in the correct order. The script you are running depends on a file that has not been created yet.
     *   **Solution:** Run the scripts in the exact sequence listed in the "Running the Full Pipeline" section above.
-
-*   **Any other strange errors related to library functions?**
-    *   **Cause:** A library might have been installed with a slightly different version that has a breaking API change.
-    *   **Solution:** The `requirements.txt` file is designed to prevent this. Ensure you have installed from it correctly. If you started from scratch, creating and using the `requirements.txt` file is the best way to ensure reproducibility.
 
 ---
 
